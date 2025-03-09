@@ -1,0 +1,113 @@
+{% include 'trainer_header.html' %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin-top: 100px;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #0c0c0c;
+        line-height: 1.6;
+    }
+
+    h1 {
+        text-align: center;
+        color: #e84545;
+    }
+
+    table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table th, table td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #e84545;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    table a {
+        text-decoration: none;
+        color: #e84545;
+        font-weight: bold;
+    }
+
+    table a:hover {
+        color: #bb2e2e;
+    }
+
+    .chat-button {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: #e84545;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.3s;
+    }
+
+    .chat-button:hover {
+        background-color: pink;
+    }
+
+    @media (max-width: 600px) {
+        table {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        table th, table td {
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+<body class="viewallottedusers">
+    <h1>Allotted Users</h1>
+
+   <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Place</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in data['view'] %}
+        <tr>
+            <td>{{i['first_name']}}</td>
+            <td>{{i['last_name']}}</td>
+            <td>{{i['phone']}}</td>
+            <td>{{i['user_email']}}</td>
+            <td>{{i['place']}}</td>
+            <td>
+                <a href="/viewchart_t?id={{i['user_id']}}">View Charts</a> |
+                <a href="/add_workout?id={{i['user_id']}}">Add Workout</a> |
+                <a href="/trainer_chat?id={{i['login_id']}}&name={{i['first_name']}}&action='chat'" class="chat-button">Chat with User</a>
+            </td>
+        </tr>
+        {% endfor %}
+   </table>
+
+   {% include 'footer.html' %}

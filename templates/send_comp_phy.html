@@ -1,0 +1,136 @@
+{% include 'physician_header.html' %}
+    <style>
+
+        
+        .send_complaints_phy {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #ffffffec;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin-top: 50px;
+           
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #e84545;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #e84545;
+            color: white;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #e84545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a53030;
+        }
+
+        .form-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-table td {
+            padding: 10px;
+        }
+
+        .form-table input[type="text"] {
+            width: 100%;
+        }
+
+        .form-table input[type="submit"] {
+            width: auto;
+            margin-left: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="send_complaints_phy">
+    <center>
+    <div class="container"><br><br><br>
+        <h1>Submit Your Complaint</h1><br>
+        <form action="" method="post">
+            <table class="form-table">
+                <tr>
+                    <td><label for="title">Title</label></td>
+                    <td><input type="text" id="title" name="title" required></td>
+                </tr>
+                <tr>
+                    <td><label for="complaint">Complaint</label></td>
+                    <td><textarea name="complaint" rows="6" cols="68"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" name="submitcomplaint_phy" value="Submit Complaint">
+                    </td>
+                </tr>
+                
+            </table>
+        </form>
+
+        <h2 style="color: #e84545;">Complaints List</h2>
+        <table>
+            <tr>
+                <th>Complaint</th>
+                <th>Reply</th>
+                <th>Date</th>
+            </tr>
+            {% for i in data['view'] %}
+            <tr>
+                <td>{{i['complaint']}}</td>
+                <td>{{i['reply']}}</td>
+                <td>{{i['date']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</center>
+    {% include 'footer.html' %}

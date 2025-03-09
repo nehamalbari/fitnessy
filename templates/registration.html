@@ -1,0 +1,186 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio" name="gender" value="male">Male</td>
+                <td><input type="radio" name="gender" value="female">Female</td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Place:</td>
+                <td><input type="text" name="place"></td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                
+                <td><input type="submit" name="submittrainer" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+    </center>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 80px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        form {
+            background: #fefefea0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        td:first-child {
+            text-align: right;
+            padding-right: 15px;
+            color: #111010;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+            
+        }
+
+        input[type="submit"] {
+            background-color: #1678e8;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #313334;
+        }
+
+        h1 {
+            text-align: center;
+            color: #171717;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 480px) {
+            td:first-child {
+                text-align: left;
+            }
+
+            table {
+                font-size: 14px;
+                
+            }
+        }
+    </style>
+</head>
+<body class="trainer_reg">
+    <form method="post">
+        <h1>Registration Form</h1>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td colspan="2">
+                    <label><input type="radio" name="gender" value="male" required>Male</label>
+                    <label><input type="radio" name="gender" value="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input type="text" name="phone" required></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>Place:</td>
+                <td><input type="text" name="place" required></td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="uname" required></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" name="submittrainer" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    {% include 'footer.html' %}

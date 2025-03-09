@@ -1,0 +1,120 @@
+{% include 'admin_header.html' %}
+<br><br><br><br><br>
+    <style>
+        /* General Reset */
+        body, h2, table, th, td {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        .viewworkout {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Heading Style */
+        h2 {
+            text-align: center;
+            color: #0c0c0c;
+            margin-bottom: 30px;
+            font-size: 38px;
+            background-color:rgba(255, 255, 255, 0.627)
+        }
+
+        /* Table Container */
+        .table-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(253, 249, 249);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #e84545;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover Effect for Table Rows */
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        /* Image Styling */
+        td img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .table-container {
+                width: 95%;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            td img {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<!-- <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}"> -->
+<body class="viewworkout">
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Workout Details</th>
+                    <th>Image</th>
+                    <th>Calories Burnt</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data['view'] %}
+                <tr>
+                    <td>{{i['workout_details']}}</td>
+                    <td><img src="{{i['image']}}" alt="Workout Image"></td>
+                    <td>{{i['calories_burnt']}}</td>
+                    <td>{{i['time']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% include 'footer.html' %}

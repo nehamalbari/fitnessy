@@ -1,0 +1,138 @@
+{% include 'admin_header.html' %}
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* body {
+            font-family: Arial, sans-serif;
+            
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        } */
+
+        .form-container {
+            background: #ffffff90;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 100px;
+            margin-left: 350px;
+            
+            
+           
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            color: #e84545;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px 0;
+        }
+
+        label {
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #e84545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #bb2c2c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            td {
+                display: block;
+            }
+
+            select {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="allott">
+
+<div class="form-container">
+    <h2>Select Trainer and Physician</h2>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="trainer_id">Select Trainer</label>
+                </td>
+                <td>
+                    <select name="trainer_id" id="trainer_id">
+                        {% for i in data['view'] %}
+                        <option value="{{i['trainer_id']}}">{{i['name']}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="physician_id">Select Physician</label>
+                </td>
+                <td>
+                    <select name="physician_id" id="physician_id">
+                        {% for j in data1['view1'] %}
+                        <option value="{{j['physician_id']}}">{{j['name']}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% include 'footer.html' %}

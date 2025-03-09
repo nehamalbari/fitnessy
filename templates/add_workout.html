@@ -1,0 +1,140 @@
+{% include 'trainer_header.html' %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 80px;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: #e84545;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #e84545;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        table a {
+            text-decoration: none;
+            color: #e84545;
+            font-weight: bold;
+        }
+
+        table a:hover {
+            color: #b93131;
+        }
+
+        form {
+            width: 90%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form table {
+            width: 100%;
+        }
+
+        form td {
+            padding: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="submit"] {
+            background-color: #e84545;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #bb2121;
+        }
+
+        @media (max-width: 600px) {
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+
+            form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+
+   <h2 style="text-align: center;">Add Workout Details</h2>
+   <form action="" method="post" enctype="multipart/form-data">
+       <table>
+           <tr>
+               <td>Workout Details</td>
+               <td><input type="text" name="workoutdetails" placeholder="Enter workout details"></td>
+           </tr>
+           <tr>
+               <td>Image</td>
+               <td><input type="file" name="image" placeholder="Enter image URL"></td>
+           </tr>
+           <tr>
+               <td>Calories Burnt</td>
+               <td><input type="text" name="caloriesburnt" placeholder="Enter calories burnt"></td>
+           </tr>
+           <tr>
+               <td>Time</td>
+               <td><input type="text" name="time" placeholder="Enter time"></td>
+           </tr>
+           <tr>
+               <td colspan="2" style="text-align: center;">
+                   <input type="submit" name="addworkout" value="Add Details">
+               </td>
+           </tr>
+       </table>
+   </form>
+   {% include 'footer.html' %}

@@ -1,0 +1,97 @@
+{% include 'admin_header.html' %}
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            margin-top: 100px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #f6f6f7;
+            margin-top: 40px;
+            font-size: 26px;
+        }
+
+        /* Container for the table */
+        .table-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.698);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            table-layout: fixed;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #e84545;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover Effect for Table Rows */
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .table-container {
+                width: 95%;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body class="feedback">
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feedback</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data['view'] %}
+                <tr>
+                    <td>{{i['feedback']}}</td>
+                    <td>{{i['date']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% include 'footer.html' %}

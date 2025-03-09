@@ -1,0 +1,96 @@
+{% include 'admin_header.html' %}
+    <style>
+        /* Reset some default styling */
+        body, h1, table, input {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Apply a clean and modern font */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #e84545;
+            margin-top: 50px;
+            font-size: 28px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.679);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-container input[type="text"]:focus {
+            outline: none;
+            border-color: #e84545;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #e84545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #a52626;
+        }
+    </style>
+</head>
+<body class="sendreply">
+    <h1>Send Reply</h1>
+    <div class="form-container">
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td><label for="sendrply">Reply:</label></td>
+                    <td><input type="text" name="sendrply" id="sendrply" placeholder="Type your reply here..."></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="sendrply" value="Send">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    {% include 'footer.html' %}

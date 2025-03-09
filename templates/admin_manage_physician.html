@@ -1,0 +1,176 @@
+{% include 'admin_header.html' %}
+    <style>
+        /* Reset and Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            /* background: 
+                url('static/images/view_users.jpg') no-repeat center center/cover; */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        
+        
+
+        /* Card Container */
+        .card {
+            background: rgba(255, 255, 255, 0.296);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            padding: 30px;
+            margin: 20px auto;
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #e84545;
+            text-align: center;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input[type="text"], 
+        form input[type="email"], 
+        form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus, 
+        form input[type="email"]:focus, 
+        form input[type="password"]:focus {
+            border-color: #007BFF;
+        }
+
+        form input[type="submit"] {
+            background-color: #e84545;
+            color: white;
+            padding: 12px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #b42c2c;
+        }
+
+        /* Radio Buttons */
+        form div {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+        }
+
+        form label {
+            font-size: 1rem;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #3b37378f;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+            }
+
+            .header {
+                font-size: 2rem;
+            }
+
+            form div {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   
+
+    <!-- Main Card Section -->
+    <div class="card">
+        <!-- Add Physician Form -->
+        <h2>Add Physician</h2>
+        <form action="" method="post">
+            <input type="text" name="name" placeholder="Physician Name" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <div>
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" name="add_physician" value="Add Physician">
+        </form>
+
+        <!-- Physicians List -->
+        <h2>Physicians List</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Gender</th>
+            </tr>
+            <!-- Assuming data is dynamically rendered here -->
+            {% for i in data['view'] %}
+            <tr>
+                    <td>{{ i['name'] }}</td>
+                    <td>{{ i['phone'] }}</td>
+                    <td>{{ i['phy_email'] }}</td>
+                    <td>{{ i['gender'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% include 'footer.html' %}

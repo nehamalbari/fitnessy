@@ -1,0 +1,118 @@
+{% include 'admin_header.html' %}
+    <style>
+        /* General Reset */
+        body, h2, table, th, td {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Heading Style */
+        h2 {
+            text-align: center;
+            color: #eff2f4;
+            margin-bottom: 30px;
+            font-size: 38px;
+        }
+
+        /* Table Container */
+        .table-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.601);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #e84545;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover Effect for Table Rows */
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .table-container {
+                width: 95%;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body class="viewcharts">
+    <h2>View Chart Details</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Age</th>
+                    <th>Weight</th>
+                    <th>Height</th>
+                    <th>Sugar Level</th>
+                    <th>Cholesterol</th>
+                    <th>BP</th>
+                    <th>Alcohol</th>
+                    <th>Smoking</th>
+                    <th>BMI</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data['view'] %}
+                <tr>
+                    <td>{{i['age']}}</td>
+                    <td>{{i['weight']}}</td>
+                    <td>{{i['height']}}</td>
+                    <td>{{i['sugar_level']}}</td>
+                    <td>{{i['cholestrol']}}</td>
+                    <td>{{i['bp']}}</td>
+                    <td>{{i['alcohol']}}</td>
+                    <td>{{i['smoking']}}</td>
+                    <td>{{i['bmi']}}</td>
+                    <td>{{i['date']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% include 'footer.html' %}
